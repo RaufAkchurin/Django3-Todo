@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from .forms import TodoForm
+from .models import Todo
 
 
 def home(request):
@@ -46,6 +48,21 @@ def loginuser(request):
             return redirect('current')
 
 
+def createtodo(request):
+    if request.method == 'GET':
+        return render(request, 'todoo/createtodo.html', {'form': TodoForm})
+    else:
+        try:
+            form = TodoForm(request.POST)
+            newtodo = form.save(commit=False)
+            newtodo.user = request.user
+            newtodo.save()
+            return redirect('current')
+        except ValueError:
+            return render(request, 'todoo/createtodo.html', {'form': TodoForm, 'error': 'Неверные данные'})
+
+
 def current(request):
+    todos = Todo.objects.all()
     return render(request, 'todoo/current.html')
 

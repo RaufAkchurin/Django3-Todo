@@ -19,7 +19,6 @@ from todoo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
 
     # auth
     path('signupuser/', views.signupuser, name='signupuser'),
@@ -27,6 +26,8 @@ urlpatterns = [
     path('loginuser/', views.loginuser, name='loginuser'),
 
     # todos
+    path('', views.home, name='home'),
     path('current/', views.current, name='current'),
+    path('createtodo/', views.createtodo, name='createtodo'),
 
 ]
