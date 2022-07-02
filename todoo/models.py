@@ -10,7 +10,7 @@ class Todo(models.Model):
     title = models.CharField(max_length=100)
     memo = models.TextField(max_length=255)
     created = models.DateField(auto_now_add=True)
-    complete = models.DateField(blank=True, auto_now_add=True)
+    complete = models.DateTimeField(blank=True, null=True)
     important = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

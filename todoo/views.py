@@ -63,6 +63,5 @@ def createtodo(request):
 
 
 def current(request):
-    todos = Todo.objects.all()
-    return render(request, 'todoo/current.html')
-
+    todos = Todo.objects.filter(user=request.user)
+    return render(request, 'todoo/current.html', {'todos': todos})
