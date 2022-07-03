@@ -6,7 +6,7 @@
             {% if todos %}
                  <h1>{{ todos.count }} Current Todo{{ todos.count|pluralize }}</h1>
             {% else %}
-                           <h1>Current Todos</h1>
+                           <h1>В работе</h1>
             {% endif %}
         </div>
     </div>
@@ -20,7 +20,7 @@
             </div>
         {% else %}
             <div class="text-center">
-                <h2>Looks like you don't have any todos! Nice work.</h2>
+                <h2>Похоже у вас не осталось других дел! Отличная работа.</h2>
             <br>
             <a role="button" class="btn btn-primary" href="{% url 'createtodo' %}">New Todo</a>
             </div>
