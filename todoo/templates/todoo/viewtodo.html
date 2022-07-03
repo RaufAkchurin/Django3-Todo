@@ -1,0 +1,12 @@
+{% extends 'todoo/base.html' %}
+
+{% block content %}
+<br><br>Viewtodo
+
+<form action="" method="post">
+    {{form.as_p}}
+    {% csrf_token %}
+    <button type="submit">save</button>
+</form>
+
+{% endblock %}

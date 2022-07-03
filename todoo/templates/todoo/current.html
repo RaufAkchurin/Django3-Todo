@@ -8,17 +8,19 @@ Corrent
 
 {% for todo in todos %}
 <ul>
-    <li>
-    {% if todo.important == True %}
-        <b> {{todo.title}} </b>
-    {% else %}
-         {{todo.title}}
-    {% endif %}
+    <a href="{% url 'viewtodo' todo.id %}">
+        <li>
+        {% if todo.important == True %}
+            <b> {{todo.title}} </b>
+        {% else %}
+             {{todo.title}}
+        {% endif %}
 
-    {% if todo.memo %}
-         - {{ todo.memo }}
-    {% endif %}
-    </li>
+        {% if todo.memo %}
+             - {{ todo.memo }}
+        {% endif %}
+        </li>
+    </a>
 </ul>
 
 {% endfor %}
