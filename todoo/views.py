@@ -40,11 +40,11 @@ def logoutuser(request):
 
 def loginuser(request):
     if request.method == 'GET':
-        return render(request, 'todoo/signupuser.html', {'form': AuthenticationForm()})
+        return render(request, 'todoo/loginuser.html', {'form': AuthenticationForm()})
     else:
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'todoo/signupuser.html', {'form': AuthenticationForm(),
+            return render(request, 'todoo/loginuser.html', {'form': AuthenticationForm(),
                                                              'error': 'Неверный логин или пароль'})
         else:
             login(request, user)
