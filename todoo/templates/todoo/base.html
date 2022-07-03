@@ -4,6 +4,12 @@
   <form action="{% url 'logoutuser' %}" method="post">
     {% csrf_token %}
     <button type="submit">logout</button>
+    <br>
+
+    <a href="{% url 'createtodo' %}">create</a>
+    <a href="{% url 'current' %}">active</a>
+    <a href="{% url 'completed' %}">completed</a>
+
 </form>
 
 {% else %}
